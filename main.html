@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEVARSH DAVE</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+scroll-behavior:smooth;
+}
+
+body{
+background:#000000;
+color:rgb(255, 255, 255);
+overflow-x:hidden;
+transition:.4s;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:600;
+}
+
+/* CLEAN ANIMATED LINE */
+
+.nav-line{
+position:fixed;
+top:50px;
+left:0;
+width:100%;
+height:32px;
+overflow:hidden;
+background:#f9d800;
+z-index:999;
+display:flex;
+align-items:center;
+
+}
+
+.ticker{
+white-space:nowrap;
+padding-left:100%;
+font-weight:600;
+color:#38bdf8;
+animation:ticker 12s linear infinite;
+}
+
+@keyframes ticker{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+
+@keyframes move{
+0%{background-position:0%;}
+100%{background-position:200%;}
+}
+
+/* HERO */
+
+.hero{
+padding-top:120px;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+background:linear-gradient(135deg,#2563eb,#9333ea);
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+.hero p{
+margin-top:15px;
+opacity:.8;
+}
+
+.btn{
+margin-top:20px;
+padding:12px 30px;
+background:white;
+color:black;
+border-radius:30px;
+border:none;
+cursor:pointer;
+font-weight:bold;
+}
+
+section{
+padding:80px 10%;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#020617;
+padding:20px;
+border-radius:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+border-radius:15px;
+}
+
+.skills div{
+margin-bottom:15px;
+}
+
+.bar{
+height:10px;
+background:#1e293b;
+border-radius:10px;
+overflow:hidden;
+}
+
+.fill{
+height:100%;
+background:#38bdf8;
+width:0;
+transition:1s;
+}
+
+form input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:.6;
+}
+
+.toggle{
+cursor:pointer;
+margin-left:20px;
+}
+
+.light{
+background:#f8fafc;
+color:black;
+}
+
+.light .card{
+background:white;
+}
+
+@media(max-width:700px){
+.hero h1{font-size:2rem;}
+nav{padding:15px;}
+
+}
+#start-btn
+
+
+{
+    width: 40%;
+} 
+#camera
+{
+    width:360px;
+    height: 250px;
+    border:1px solid grey;
+}
+#logo_img
+{
+    width: 150px;
+    border-radius: 100px;
+}
+#textbox
+{
+    width: 300px;
+}
+
+
+
+.verify-box{
+background:#020617;
+padding:25px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
+text-align:center;
+}
+
+#video,#preview{
+width:100%;
+border-radius:15px;
+display:none;
+margin-bottom:10px;
+}
+
+.verify-buttons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:10px;
+}
+
+.progress{
+height:8px;
+background:#1e293b;
+border-radius:10px;
+overflow:hidden;
+margin-top:15px;
+display:none;
+}
+
+#progressFill{
+height:100%;
+width:0%;
+background:#38bdf8;
+transition:.2s;
+}
+
+#status{
+margin-top:10px;
+font-weight:bold;
+}
+#statusw{
+margin-top:10px;
+font-weight:bold;
+}
+body{
+transition:.4s;
+}
+
+.dark{
+background:#0f172a;
+color:white;
+}
+
+.dark nav{
+background:rgba(0,0,0,.7);
+}
+
+.dark .card{
+background:#020617;
+color:white;
+}
+
+.dark .verify-box{
+background:#020617;
+}
+
+.dark input,.dark textarea{
+background:#020617;
+color:white;
+border:1px solid #1e293b;
+}
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h3>Devarsh Dave</h3>
+<div>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+<a href="#verify">Verification</a>
+<button id="darkToggle" class="btn" style="padding:6px 15px;">🌙</button>
+</div>
+</nav>
+
+<div class="nav-line">
+  <div class="ticker">
+  A breif Portofio about myself!!
+  </div>
+</div>
+
+
+<div class="hero">
+<h1>Hi, I'm a Passionate coder</h1>
+<p>Adancaced portfoio app made in Html, CSS and JavaScript</p>
+<button class="btn" onclick="scrollToSection()">Explore</button>
+</div>
+
+<section id="projects">
+<h2>Projects</h2><br>
+
+<div class="grid">
+<div class="card">
+<img src="https://picsum.photos/400/300?1">
+<h3>Dashboard UI</h3>
+<button class="btn" onclick="download()">Download Image</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/300?2">
+<h3>Landing Page</h3>
+<button class="btn" onclick="download()">Download Image</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/300?3">
+<h3>App Design</h3>
+<button class="btn" onclick="download()">Download Image</button>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2><br>
+
+<div class="skills">
+<div>Javascript/Html<div class="bar"><div class="fill" data="90"></div></div></div>
+<div>Python<div class="bar"><div class="fill" data="85"></div></div></div>
+<div>CSS<div class="bar"><div class="fill" data="80"></div></div></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact Me</h2><br>
+
+<form onsubmit="send(event)">
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea rows="4" placeholder="Message"></textarea>
+<button class="btn">Send</button>
+</form>
+</section>
+<br>
+
+<section id="verify">
+<h2>Human Verification</h2>
+
+<div class="verify-box">
+
+<video id="video" autoplay playsinline></video>
+<canvas id="canvas"></canvas>
+<img id="preview"/>
+
+<div class="verify-buttons">
+<button class="btn" id="openCam">Open Camera</button>
+<button class="btn" id="captureBtn">Capture</button>
+
+<label class="btn">
+Upload Image
+<input type="file" id="upload" hidden>
+</label>
+
+<button class="btn" id="verifyBtn">Verify Human</button>
+</div>
+
+<div class="progress">
+<div id="progressFill"></div>
+</div>
+
+<p id="status"></p><br>
+<p id="statusw"></p>
+
+</div>
+</section>
+
+
+<script>
+function scrollToSection(){
+document.getElementById("projects").scrollIntoView();
+}
+
+function download(){
+let a=document.createElement("a");
+a.href="https://picsum.photos/800";
+a.download="project.jpg";
+a.click();
+}
+
+function send(e){
+e.preventDefault();
+alert("Message sent (frontend demo)");
+}
+
+let observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.style.width=e.target.getAttribute("data")+"%";
+}
+});
+});
+
+document.querySelectorAll(".fill").forEach(f=>observer.observe(f));
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const video=document.getElementById("video");
+const preview=document.getElementById("preview");
+const upload=document.getElementById("upload");
+const openCam=document.getElementById("openCam");
+const captureBtn=document.getElementById("captureBtn");
+const verifyBtn=document.getElementById("verifyBtn");
+const status=document.getElementById("status");
+const progress=document.querySelector(".progress");
+const fill=document.getElementById("progressFill");
+
+let stream=null;
+let captured=false;
+
+openCam.addEventListener("click",async()=>{
+try{
+stream=await navigator.mediaDevices.getUserMedia({video:true});
+video.srcObject=stream;
+video.style.display="block";
+preview.style.display="none";
+}catch{
+alert("Camera blocked");
+}
+});
+
+captureBtn.addEventListener("click",()=>{
+const canvas=document.createElement("canvas");
+canvas.width=video.videoWidth;
+canvas.height=video.videoHeight;
+canvas.getContext("2d").drawImage(video,0,0);
+preview.src=canvas.toDataURL("image/png");
+preview.style.display="block";
+video.style.display="none";
+captured=true;
+if(stream) stream.getTracks().forEach(t=>t.stop());
+});
+
+upload.addEventListener("change",(e)=>{
+const reader=new FileReader();
+reader.onload=()=>{
+preview.src=reader.result;
+preview.style.display="block";
+video.style.display="none";
+captured=true;
+};
+reader.readAsDataURL(e.target.files[0]);
+});
+
+verifyBtn.addEventListener("click",()=>{
+
+if(!captured){
+alert("Take or upload selfie first");
+return;
+}
+
+progress.style.display="block";
+fill.style.width="0%";
+status.innerHTML="Scanning...";
+
+let p=0;
+let scan=setInterval(()=>{
+p+=10;
+fill.style.width=p+"%";
+
+if(p>=100){
+clearInterval(scan);
+status.innerHTML="✅ Human Verified";
+status.style.color="#38bdf8";
+statusw.innerHTML="You can procced for the email part";
+}
+},200);
+const toggle=document.getElementById("darkToggle");
+
+// load saved mode
+if(localStorage.getItem("mode")==="dark"){
+document.body.classList.add("dark");
+toggle.innerHTML="🌞";
+}
+
+toggle.addEventListener("click",()=>{
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+toggle.innerHTML="🌞";
+localStorage.setItem("mode","dark");
+}else{
+toggle.innerHTML="🌙";
+localStorage.setItem("mode","light");
+}
+
+
+
+
+});
+
+
+});
+
+
+});
+
+
+</script>
+
+</body>
+</html>
